@@ -1,0 +1,15 @@
+- name: "Copy files" 
+  hosts: db 
+  become: yes 
+  gather_facts: false 
+  vars: 
+    source: /home/ansadmin/test/one.txt 
+    dest: /home/ansadmin/test/ 
+  tasks: 
+    - name: "Copy file"
+      copy:
+        src: "{{source}}"
+        dest: "{{dest}}"
+        owner: ansadmin
+        group: root
+        mode: 777 
